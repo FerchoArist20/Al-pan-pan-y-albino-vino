@@ -1,3 +1,4 @@
+import math
 # usando len
 def cantidad_digitos(n): #0(n)
     return len(str(n))   #0(1)
@@ -9,5 +10,12 @@ def cantidad_digitos(n): #0(n)
         count += 1       #0(1)
         n //= 10
     return count
+def count_digits(n):
+    if n < 10:
+        return 1
+    else:
+        return 1 + count_digits(n // 10)
 
+n = 123456789
+print("El número", n, "tiene", count_digits(n), "dígitos.")
 
