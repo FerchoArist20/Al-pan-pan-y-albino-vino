@@ -197,15 +197,21 @@ from pandas import json_normalize
 import requests
 import json
 
-link = "https://www.datos.gov.co/resource/7q36-mkp5.json"
+link = "https://www.datos.gov.co/resource/kvs2-zsr7.json"
 data = requests.get(link)
 datos = json.loads(data.text)
 datos = json_normalize(datos)
 datos
 
-datos_api = datos["localizaci_n.latitude"]
-datos_api = datos_api.astype(float)
+datos_api = datos["id"]
+datos_api = datos_api.astype(int)
 print(list(datos_api))
 
 ordenamiento = Taller_Ordenamiento
 print(ordenamiento.burbuja(list(datos_api)))
+
+ordenamiento = Taller_Ordenamiento
+print(ordenamiento.counting_sort(list(datos_api)))
+
+ordenamiento = Taller_Ordenamiento
+print(ordenamiento.MergeSort(list(datos_api)))
